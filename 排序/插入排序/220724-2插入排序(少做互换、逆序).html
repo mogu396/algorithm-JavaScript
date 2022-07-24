@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../util/sortHelper.js"></script>
+    <script src="../util/generateRandomArray.js"></script>
+    <script src="../util/checkSort.js"></script>
+
+    <script>
+        // O n2
+        // 这里减少了互换操作，相当于计算机jit减少了寻址，时间复杂度上仍是O n2
+        // 但从时间上来说，比最初的版本快了一倍，十万条数据只需要一半的时间，5s 。
+        const insertionSort = (arr) => {
+            for (let i = arr.length - 1; i >= 0; i--) {
+                const temp = arr[i]
+                let j
+                for (j = i; (j + 1 < arr.length) && (temp > arr[j + 1]); j++) {
+                    arr[j] = arr[j + 1]
+                }
+                arr[j] = temp
+            }
+            return arr
+        }
+
+
+        // const arr = [-2,-100]
+        const arr = generateRandomArray(10000, 10000)
+        sortHelper(insertionSort, arr)
+        console.log(checkSort(arr))
+
+        const arr2 = generateRandomArray(100000, 10000)
+        sortHelper(insertionSort, arr2)
+        console.log(checkSort(arr2))
+    </script>
+</body>
+
+</html>

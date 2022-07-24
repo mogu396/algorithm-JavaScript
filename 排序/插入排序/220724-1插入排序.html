@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="../util/sortHelper.js"></script>
+    <script src="../util/generateRandomArray.js"></script>
+    <script src="../util/checkSort.js"></script>
+
+    <script>
+        // 不断地把最小的拿出来
+        // 最好O n，最坏O n2
+        // O n2
+        const insertionSort = (arr) => {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i; j - 1 >= 0; j--) {
+                    if (arr[j] < arr[j - 1]){
+                        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]]
+                    }else {
+                        break
+                    }
+                }
+            }
+            return arr
+        }
+
+
+        const arr = generateRandomArray(10000, 10000)
+        sortHelper(insertionSort, arr)
+        console.log(checkSort(arr))
+
+        const arr2 = generateRandomArray(100000, 10000)
+        sortHelper(insertionSort, arr2)
+        console.log(checkSort(arr2))
+    </script>
+</body>
+
+</html>

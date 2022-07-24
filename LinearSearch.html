@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const LinearSearch = (data, target) => {
+        //     for (let i = 0; i < data.length; i++) {
+        //         if (data[i] === target) {
+        //             return i
+        //         }
+        //     }
+        //     return -1
+        // }
+        // console.log(LinearSearch([1, 2, 3, 4123, 23, 323], 23))
+
+
+        const arrayGenerator = (n) => {
+            const arr = []
+            for (let i = 0; i < n; i++) {
+                arr.push(i)
+            }
+        }
+
+        console.time("start")
+        arrayGenerator(100000000)
+        // const data = new Date()
+        console.timeEnd("start")
+        console.log(1)
+    </script>
+</body>
+
+</html>
